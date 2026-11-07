@@ -1,4 +1,3 @@
 Sube TODO el contenido de esta carpeta a la raiz de tu repositorio de GitHub
-(index.html, venezuela.html, movil.html y la carpeta assets, mas el archivo .nojekyll).
-Luego, en el repositorio: Settings > Pages > Branch: main / (root).
-Abre la direccion que te da GitHub Pages y recarga con Ctrl+F5.
+(index.html, venezuela.html, movil.html, la carpeta assets y .nojekyll).
+Reemplaza los archivos anteriores. Luego Ctrl+F5 en la pagina.

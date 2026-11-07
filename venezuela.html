@@ -41,7 +41,7 @@ img,video{display:block;max-width:100%}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%,100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
 
 /* hero */
-.hero{position:relative;overflow-x:clip;display:flex;gap:40px;flex-wrap:wrap;align-items:center;padding-top:10px;padding-bottom:90px}
+.hero{position:relative;overflow-x:clip;display:flex;gap:40px;flex-wrap:wrap;align-items:center;padding-top:10px;padding-bottom:36px}
 .hero .glow{position:absolute;left:-160px;top:-60px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,31,.30),rgba(255,138,31,0) 65%);pointer-events:none}
 .hero .txt{position:relative;flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
 .pill{align-self:flex-start;padding:7px 15px;border-radius:999px;background:#FFE3C2;color:#7A3C00;font-size:13px;font-weight:800}
@@ -82,8 +82,10 @@ h1 em{font-style:normal;color:var(--pink)}
 .sortb[aria-pressed="true"]{border-color:var(--pink);background:#FFE9F1;color:var(--pink-d)}
 .note{margin:12px 4px 0;font-size:13px;color:var(--ink-3)}
 
+.note2{margin:0 auto;font-size:13px;color:var(--ink-3);position:relative;z-index:2}
+.body{scroll-margin-top:215px}
 /* chips sticky */
-.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,246,234,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:26px}
+.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,246,234,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:18px}
 .chips .row{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
 .chips .row::-webkit-scrollbar{display:none}
 .chips a{flex:none;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;background:#fff;border:2px solid var(--line);transition:transform .25s,background .25s,color .25s}
@@ -187,7 +189,7 @@ footer .fine{border-top:1px solid #243B55;padding-block:18px 28px;display:flex;j
 .fab{position:fixed;z-index:30;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--wa);color:#0B2E18;font-weight:800;text-decoration:none;box-shadow:0 12px 26px -8px rgba(18,140,70,.6);transition:opacity .25s,transform .25s}
 .fab svg{width:24px;height:24px}
 .fab.off{opacity:0;pointer-events:none;transform:scale(.7)}
-@media (max-width:640px){.fab span{display:none}.fab{padding:15px}.ban{height:240px}.tk .buy{min-width:112px}.hero{padding-bottom:80px}}
+@media (max-width:640px){.fab span{display:none}.fab{padding:15px}.ban{height:240px}.tk .buy{min-width:112px}.hero{padding-bottom:30px}}
 
 /* revelado al hacer scroll: visible por defecto, solo se anima si el navegador lo permite */
 .rv{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
@@ -226,7 +228,7 @@ footer .fine{border-top:1px solid #243B55;padding-block:18px 28px;display:flex;j
   </div>
 </section>
 
-<section class="wrap ctrl" aria-label="Filtros">
+<section class="wrap ctrl" aria-label="Filtros" hidden>
   <div class="panel">
     <label class="search" for="q">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -245,8 +247,8 @@ footer .fine{border-top:1px solid #243B55;padding-block:18px 28px;display:flex;j
     </div>
     <button type="button" class="sortb" id="sort" aria-pressed="false">Menor precio primero</button>
   </div>
-  <p class="note">Precios por persona en REF, actualizados en octubre 2026 y sujetos a cambios. Confirma fecha y cupo por WhatsApp.</p>
-</section>
+  </section>
+<p class="wrap note2">Precios por persona en REF, actualizados en octubre 2026 y sujetos a cambios. Confirma fecha y cupo por WhatsApp.</p>
 
 <nav class="chips" aria-label="Destinos"><div class="wrap"><div class="row" id="chips"></div></div></nav>
 
@@ -383,7 +385,7 @@ var LISTA=[{"id": "morrocoy", "region": "Falcón", "title": "Morrocoy", "from": 
   $('minus').addEventListener('click',function(){setN(st.n-1);});
   $('plus').addEventListener('click',function(){setN(st.n+1);});
   $('sort').addEventListener('click',function(){st.sort=!st.sort;this.setAttribute('aria-pressed',st.sort?'true':'false');render();});
-  chips.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var sec=$(a.dataset.id);if(!sec)return;if(closed[a.dataset.id]){toggle(sec);}sec.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+a.dataset.id);});
+  chips.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var sec=$(a.dataset.id);if(!sec)return;if(closed[a.dataset.id]){toggle(sec);}(sec.querySelector('.body')||sec).scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+a.dataset.id);});
   // chip activo
   var spy=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.chips a').forEach(function(a){a.classList.toggle('on',a.dataset.id===e.target.dataset.id);var on=document.querySelector('.chips a.on');if(on&&on.scrollIntoView)on.parentNode.scrollTo({left:on.offsetLeft-40,behavior:'smooth'});});}});},{rootMargin:'-30% 0px -60% 0px'});
   var _render=render;render=function(){_render();spy.disconnect();root.querySelectorAll('.dest').forEach(function(s){spy.observe(s);});};
@@ -392,7 +394,7 @@ var LISTA=[{"id": "morrocoy", "region": "Falcón", "title": "Morrocoy", "from": 
   function fabChk(){var r=ft.getBoundingClientRect();fab.classList.toggle('off',r.top<window.innerHeight-40);}
   window.addEventListener('scroll',fabChk,{passive:true});window.addEventListener('resize',fabChk);
   $('n-out').textContent=st.n;render();fabChk();
-  if(location.hash){var t=$(location.hash.slice(1));if(t){setTimeout(function(){t.scrollIntoView({block:'start'});},200);}}
+  if(location.hash){var t=$(location.hash.slice(1));if(t){setTimeout(function(){(t.querySelector('.body')||t).scrollIntoView({block:'start'});},200);}}
 })();
 </script>
 </body>

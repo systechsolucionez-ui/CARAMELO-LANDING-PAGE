@@ -1,3 +1,1 @@
-Sube TODO el contenido de esta carpeta a la raiz de tu repositorio de GitHub
-(index.html, venezuela.html, movil.html, la carpeta assets y .nojekyll).
-Reemplaza los archivos anteriores. Luego Ctrl+F5 en la pagina.
+Sube TODO el contenido de esta carpeta a la raiz del repositorio (reemplaza lo anterior).

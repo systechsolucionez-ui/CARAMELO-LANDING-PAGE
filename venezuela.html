@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Caramelo Tours · Venezuela (Fase 1, boceto)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+/* Concepto: la lista de precios convertida en un recorrido de boletos por la costa venezolana.
+   Cada destino es un banner con las puntas del caramelo y sus opciones son boletos con perforación. */
+:root{
+  color-scheme:light;
+  --cream:#FFF6EA; --sand:#F4EBDD; --line:#EBD9C2;
+  --ink:#1B2A3C; --ink-2:#3B4E63; --ink-3:#5C6E82;
+  --orange:#FF8A1F; --pink:#D9356F; --pink-d:#B8255A; --cyan:#12B3D6; --navy:#0F2236; --wa:#25D366;
+  --f-display:'Outfit',system-ui,sans-serif; --f-body:'Inter',system-ui,sans-serif; --f-hand:'Pacifico','Brush Script MT',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* franja */
+.strip{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;overflow:hidden;white-space:nowrap;font-size:14px;font-weight:700}
+.strip .t{display:flex;width:max-content;padding:10px 0;animation:marq 30s linear infinite}
+.strip span{padding:0 26px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:8px}
+.nav img{width:78px;height:78px;object-fit:contain}
+.nav .back{font-weight:700;text-decoration:none;padding:10px 16px;border-radius:999px;background:#fff;box-shadow:0 8px 20px -14px rgba(27,42,60,.6)}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--wa);color:#0B2E18;font-weight:800;text-decoration:none;font-size:14px;animation:pulse 2.4s infinite}
+.btn-wa svg{width:20px;height:20px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%,100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+
+/* hero */
+.hero{position:relative;overflow-x:clip;display:flex;gap:40px;flex-wrap:wrap;align-items:center;padding-top:10px;padding-bottom:90px}
+.hero .glow{position:absolute;left:-160px;top:-60px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,31,.30),rgba(255,138,31,0) 65%);pointer-events:none}
+.hero .txt{position:relative;flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.pill{align-self:flex-start;padding:7px 15px;border-radius:999px;background:#FFE3C2;color:#7A3C00;font-size:13px;font-weight:800}
+h1{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(40px,6.4vw,76px);line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--pink)}
+.hero p{margin:0;font-size:18px;color:var(--ink-2);max-width:520px}
+.hand{font-family:var(--f-hand);color:var(--pink);font-size:24px;transform:rotate(-3deg);align-self:flex-start}
+.facts{display:flex;gap:10px;flex-wrap:wrap}
+.facts div{background:#fff;border-radius:16px;padding:10px 16px;box-shadow:0 10px 22px -16px rgba(27,42,60,.6)}
+.facts b{display:block;font-family:var(--f-display);font-size:26px;line-height:1.1;color:var(--pink-d)}
+.facts span{font-size:13px;color:var(--ink-3);font-weight:600}
+.hero .vid{position:relative;flex:0 1 400px;min-width:260px;width:100%}
+.candy{clip-path:polygon(44px 0,calc(100% - 44px) 0,100% 18%,calc(100% - 30px) 50%,100% 82%,calc(100% - 44px) 100%,44px 100%,0 82%,30px 50%,0 18%)}
+.hero .vid .box{aspect-ratio:9/11;max-height:560px;background:var(--cyan);position:relative}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sun{position:absolute;right:-6px;top:-26px;width:92px;height:92px;animation:spin 24s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{position:absolute;background:#fff;border-radius:16px;padding:10px 14px;box-shadow:0 18px 30px -14px rgba(27,42,60,.55);animation:fl 5s ease-in-out infinite}
+.float small{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;color:#8A4300;text-transform:uppercase}
+.float b{font-family:var(--f-display);font-size:19px}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(var(--r,0))}50%{transform:translateY(-10px) rotate(var(--r,0))}}
+
+/* panel de control */
+.ctrl{position:relative;z-index:5;margin-top:-62px}
+.panel{background:#fff;border-radius:24px;padding:16px;box-shadow:0 30px 50px -28px rgba(27,42,60,.55);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:14px;padding:0 14px;min-height:52px;border:2px solid transparent}
+.search:focus-within{border-color:var(--pink)}
+.search svg{width:20px;height:20px;color:var(--ink-3);flex:none}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:var(--ink)}
+.seg{display:flex;gap:4px;background:var(--sand);padding:4px;border-radius:14px}
+.seg button{border:0;background:transparent;padding:10px 16px;border-radius:10px;font-weight:700;font-size:14px;transition:background .25s}
+.seg button[aria-pressed="true"]{background:var(--orange);font-weight:800}
+.step{display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:14px;padding:6px 10px 6px 16px;min-height:52px}
+.step label{font-size:13px;font-weight:700;color:var(--ink-3);line-height:1.2}
+.step button{width:36px;height:36px;border-radius:50%;border:0;background:#fff;font-size:20px;font-weight:800;box-shadow:0 4px 10px -6px rgba(27,42,60,.6)}
+.step output{min-width:22px;text-align:center;font-family:var(--f-display);font-weight:800;font-size:20px}
+.sortb{border:2px solid var(--line);background:#fff;border-radius:14px;min-height:52px;padding:0 16px;font-weight:700;font-size:14px}
+.sortb[aria-pressed="true"]{border-color:var(--pink);background:#FFE9F1;color:var(--pink-d)}
+.note{margin:12px 4px 0;font-size:13px;color:var(--ink-3)}
+
+/* chips sticky */
+.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,246,234,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:26px}
+.chips .row{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.chips .row::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;background:#fff;border:2px solid var(--line);transition:transform .25s,background .25s,color .25s}
+.chips a:hover{transform:translateY(-2px)}
+.chips a.on{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;border-color:transparent}
+
+/* destinos */
+.dest{padding-top:56px;scroll-margin-top:70px}
+.ban{position:relative;height:300px;overflow:hidden;background:#0b2e40;cursor:pointer}
+.ban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.ban:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,28,.78) 0%,rgba(10,12,28,.12) 70%)}
+.ban .in{position:absolute;z-index:2;left:clamp(50px,6vw,80px);right:20px;bottom:26px;color:#fff;display:flex;flex-direction:column;gap:6px}
+.ban .reg{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;opacity:.92}
+.ban h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.02em;text-wrap:balance}
+.ban .from{position:absolute;z-index:2;right:clamp(46px,5vw,70px);top:22px;background:#fff;color:var(--ink);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700}
+.ban .from b{color:var(--pink-d);font-size:17px;font-family:var(--f-display)}
+.ban .tog{position:absolute;z-index:2;right:clamp(46px,5vw,70px);bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:0;transition:transform .3s}
+.ban .tog svg{width:20px;height:20px;color:var(--ink)}
+.dest.closed .tog{transform:rotate(180deg)}
+.fact{margin:18px 4px 0;display:flex;gap:12px;align-items:center;font-size:15px;color:var(--ink-2)}
+.fact .hand{font-size:20px;white-space:nowrap}
+.body{overflow:hidden;transition:max-height .5s ease}
+.grp{margin:26px 4px 12px;display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.grp:after{content:"";flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
+.tk{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 28px -22px rgba(27,42,60,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.tk:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 26px 40px -24px rgba(27,42,60,.55)}
+.tk .info{padding:18px 18px 18px 22px;display:flex;flex-direction:column;gap:4px;justify-content:center;min-width:0}
+.tk .tag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#FFE9CF;color:#7A3C00}
+.tk .tag.stay{background:#DDF4FA;color:#08586B}
+.tk h3{margin:4px 0 0;font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.15;text-wrap:balance}
+.tk .sub{font-size:14px;color:var(--ink-3)}
+.tk .buy{position:relative;padding:18px 18px 16px;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-left:2px dashed var(--line);text-align:center}
+.tk .buy:before,.tk .buy:after{content:"";position:absolute;left:-11px;width:20px;height:20px;border-radius:50%;background:var(--cream)}
+.tk .buy:before{top:-10px}.tk .buy:after{bottom:-10px}
+.tk .pr{font-family:var(--f-display);font-weight:800;font-size:26px;line-height:1;color:var(--pink-d)}
+.tk .pr small{font-size:12px;font-weight:700;margin-right:3px}
+.tk .pr.ask{font-size:17px;color:#9A5200}
+.tk .tot{font-size:12px;font-weight:700;color:var(--ink-3);min-height:16px}
+.tk .go{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:var(--orange);color:var(--ink);font-weight:800;font-size:14px;text-decoration:none;min-height:44px;transition:background .25s,transform .25s}
+.tk .go:hover{background:#FFA13F;transform:scale(1.05)}
+.empty{text-align:center;padding:50px 16px;color:var(--ink-3);font-size:18px}
+.empty b{display:block;font-family:var(--f-hand);font-weight:400;font-size:28px;color:var(--pink);margin-bottom:6px}
+
+/* bandas de video */
+.band{position:relative;overflow:hidden;color:#fff;margin-top:70px}
+.band video,.band .vs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band .vs{display:flex;gap:6px}
+.band .vs video{position:static;flex:1 1 0;min-width:0}
+.band .ov{position:absolute;inset:0}
+.band .wv{position:absolute;left:0;right:0;height:60px;overflow:hidden}
+.band .wv.t{top:-1px}.band .wv.b{bottom:-1px}
+.band .wv div{display:flex;width:200%;animation:wave 14s linear infinite}
+.band .wv.b div{animation-duration:9s;animation-direction:reverse}
+.band .wv svg{width:50%;height:60px;display:block}
+@keyframes wave{to{transform:translateX(-50%)}}
+.band .c{position:relative;padding-top:110px;padding-bottom:110px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.band h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.03em;text-wrap:balance;text-shadow:0 6px 30px rgba(60,10,30,.4)}
+.band .hand{color:#FFE27A;align-self:center;transform:none}
+.band p{margin:0;font-size:18px;max-width:520px}
+.btn-big{display:inline-flex;align-items:center;gap:12px;padding:18px 34px;border-radius:999px;background:#fff;color:#8F1A45;font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 20px 40px -16px rgba(60,0,30,.6);position:relative;overflow:hidden;min-height:44px}
+.btn-big:after{content:"";position:absolute;top:0;bottom:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,138,31,.35),transparent);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(260%) skewX(-20deg)}}
+
+/* pagos */
+.pay{padding-top:64px}
+.pay h2{margin:0 0 6px;font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em}
+.coins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px;margin-top:18px}
+.coins div{background:#fff;border-radius:22px;padding:20px 22px;box-shadow:0 14px 28px -22px rgba(27,42,60,.6);display:flex;flex-direction:column;gap:2px;transition:transform .3s}
+.coins div:hover{transform:translateY(-5px) rotate(-1deg)}
+.coins b{font-family:var(--f-display);font-size:34px;line-height:1.1;color:var(--pink-d)}
+.coins span{font-size:14px;color:var(--ink-3);font-weight:600}
+/* otros sectores */
+.others{padding-top:64px}
+.others h2{margin:0 0 6px;font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em}
+.others .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:18px}
+.oc{display:flex;flex-direction:column;gap:6px;padding:24px;border-radius:24px;text-decoration:none;color:var(--ink);transition:transform .3s}
+.oc:hover{transform:translateY(-6px)}
+.oc b{font-family:var(--f-display);font-size:26px;line-height:1.1}
+.oc span{font-size:15px}
+.oc i{font-style:normal;font-weight:800;margin-top:8px}
+
+/* pie */
+footer{background:var(--navy);color:#fff;margin-top:0}
+footer .in{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-block:56px 28px}
+footer .l{flex:1 1 320px;display:flex;flex-direction:column;gap:12px}
+footer .lg{width:78px;height:78px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+footer .lg img{width:94px;height:94px;object-fit:contain}
+footer .k{margin:0;font-family:var(--f-display);font-weight:800;font-size:24px;background:linear-gradient(90deg,#FF6FA0,#FFB36B);-webkit-background-clip:text;background-clip:text;color:transparent}
+footer p{margin:0;color:#B9C8D8;font-size:15px;max-width:420px}
+.soc{flex:1 1 420px;max-width:560px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.soc a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 6px 14px;border-radius:20px;color:#fff;text-decoration:none;font-weight:800;font-size:14px;transition:transform .25s,filter .25s}
+.soc a:hover{transform:translateY(-6px) rotate(-1.5deg);filter:brightness(1.1)}
+.soc svg{width:32px;height:32px}
+.sw{background:var(--wa)}
+.sm{background:#fff;color:#3c4043!important;border-bottom:4px solid #4285F4}
+.si{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.st{background:#010101;box-shadow:inset 2px 0 0 #25f4ee,inset -2px 0 0 #fe2c55}
+footer .fine{border-top:1px solid #243B55;padding-block:18px 28px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:#8FA3B8}
+.fab{position:fixed;z-index:30;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--wa);color:#0B2E18;font-weight:800;text-decoration:none;box-shadow:0 12px 26px -8px rgba(18,140,70,.6);transition:opacity .25s,transform .25s}
+.fab svg{width:24px;height:24px}
+.fab.off{opacity:0;pointer-events:none;transform:scale(.7)}
+@media (max-width:640px){.fab span{display:none}.fab{padding:15px}.ban{height:240px}.tk .buy{min-width:112px}.hero{padding-bottom:80px}}
+
+/* revelado al hacer scroll: visible por defecto, solo se anima si el navegador lo permite */
+.rv{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .rv.pre{opacity:0;transform:translateY(34px)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv.pre{opacity:1;transform:none}}
+</style>
+
+</head>
+<body>
+<div class="strip" aria-hidden="true"><div class="t">
+<span>Precios por persona en REF</span><span>•</span><span>Actualizados octubre 2026</span><span>•</span><span>Paga en Bs, USD o USDT</span><span>•</span><span>Salidas todos los fines de semana</span><span>•</span>
+<span>Precios por persona en REF</span><span>•</span><span>Actualizados octubre 2026</span><span>•</span><span>Paga en Bs, USD o USDT</span><span>•</span><span>Salidas todos los fines de semana</span><span>•</span>
+</div></div>
+
+<header class="wrap nav">
+  <img src="assets/img/logo.jpg" alt="Caramelo Tours">
+  <a class="back" href="index.html">← Volver al inicio</a>
+  <a class="btn-wa" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%20Quiero%20informaci%C3%B3n%20sobre%20un%20paseo" target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.01 3C9.38 3 4 8.32 4 14.9c0 2.2.6 4.24 1.65 6.01L4 29l8.3-1.62a12.9 12.9 0 0 0 3.71.55h.01c6.63 0 12-5.32 12-11.9C28 8.32 22.63 3 16.01 3z"/></svg>
+    +58 424 251 1630</a>
+</header>
+
+<section class="wrap hero">
+  <div class="glow"></div>
+  <div class="txt">
+    <span class="pill">Venezuela · Full Days y estadías</span>
+    <h1>Todos nuestros destinos, <em>con precio claro</em></h1>
+    <p>La lista de precios de Caramelo Tours, pero para pasear por ella. Busca tu playa, cuenta cuántos van y reserva por WhatsApp.</p>
+    <div class="hand">la dulce manera de viajar</div>
+    <div class="facts" id="facts"></div>
+  </div>
+  <div class="vid">
+    <div class="candy"><div class="box"><video src="assets/video/flota.mp4" autoplay muted loop playsinline></video></div></div>
+    <svg class="sun" viewBox="0 0 120 120" aria-hidden="true"><g stroke="#FFC21A" stroke-width="6" stroke-linecap="round"><path d="M60 6v16M60 98v16M6 60h16M98 60h16M22 22l11 11M87 87l11 11M98 22 87 33M33 87 22 98"/></g><circle cx="60" cy="60" r="26" fill="#FFD93B"/></svg>
+    <div class="float" style="left:-6px;top:70px;--r:-4deg"><small>Precios por persona</small><b>En REF · octubre 2026</b></div>
+  </div>
+</section>
+
+<section class="wrap ctrl" aria-label="Filtros">
+  <div class="panel">
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Busca una playa, un cayo o un destino" autocomplete="off">
+    </label>
+    <div class="seg" role="group" aria-label="Tipo de salida">
+      <button type="button" data-f="all" aria-pressed="true">Todo</button>
+      <button type="button" data-f="day" aria-pressed="false">Full Days</button>
+      <button type="button" data-f="stay" aria-pressed="false">Estadías</button>
+    </div>
+    <div class="step" role="group" aria-label="Cuántas personas">
+      <label for="n-out">¿Cuántos<br>van?</label>
+      <button type="button" id="minus" aria-label="Una persona menos">−</button>
+      <output id="n-out" class="num" aria-live="polite">1</output>
+      <button type="button" id="plus" aria-label="Una persona más">+</button>
+    </div>
+    <button type="button" class="sortb" id="sort" aria-pressed="false">Menor precio primero</button>
+  </div>
+  <p class="note">Precios por persona en REF, actualizados en octubre 2026 y sujetos a cambios. Confirma fecha y cupo por WhatsApp.</p>
+</section>
+
+<nav class="chips" aria-label="Destinos"><div class="wrap"><div class="row" id="chips"></div></div></nav>
+
+<main class="wrap" id="dests"></main>
+
+<section class="wrap pay" aria-label="Formas de pago">
+  <h2>Cómo pagas</h2>
+  <p style="margin:0;color:var(--ink-2)">Por ahora recibimos tu pago en estas monedas. Tu asesor te confirma los datos por WhatsApp antes de reservar.</p>
+  <div class="coins"><div><b>Bs</b><span>Bolívares</span></div><div><b>USD</b><span>Dólares</span></div><div><b>USDT</b><span>Tether</span></div></div>
+</section>
+
+<section class="band" aria-label="Video del mar">
+  <div class="vs" aria-hidden="true"><video src="assets/video/cristal.mp4" autoplay muted loop playsinline></video><video src="assets/video/orilla.mp4" autoplay muted loop playsinline></video><video src="assets/video/oleaje.mp4" autoplay muted loop playsinline></video><video src="assets/video/rocas.mp4" autoplay muted loop playsinline></video></div>
+  <div class="ov" style="background:linear-gradient(180deg,rgba(18,179,214,.50),rgba(10,140,180,.60))"></div>
+  <div class="wv t" aria-hidden="true"><div><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 0V30Q90 60 180 30T360 30T540 30T720 30T900 30T1080 30T1260 30T1440 30V0Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 0V30Q90 60 180 30T360 30T540 30T720 30T900 30T1080 30T1260 30T1440 30V0Z" fill="#FFF6EA"/></svg></div></div>
+  <div class="wv b" aria-hidden="true"><div><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 60V30Q90 0 180 30T360 30T540 30T720 30T900 30T1080 30T1260 30T1440 30V60Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 60V30Q90 0 180 30T360 30T540 30T720 30T900 30T1080 30T1260 30T1440 30V60Z" fill="#FFF6EA"/></svg></div></div>
+  <div class="wrap c"><span class="hand">¿No ves tu plan?</span><h2>Te armamos el viaje a tu medida</h2><p>Grupos, cumpleaños, empresas o un destino que no está en la lista.</p>
+    <a class="btn-big" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20privado" target="_blank" rel="noopener">Cotizar viaje privado por WhatsApp</a></div>
+</section>
+
+<section class="wrap others">
+  <h2>Y más allá de Venezuela</h2>
+  <p style="margin:0;color:var(--ink-2)">Estos sectores se cotizan directo por WhatsApp.</p>
+  <div class="grid">
+    <a class="oc" style="background:var(--cyan)" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20internacional" target="_blank" rel="noopener"><b>Internacional</b><span>Destinos fuera del país</span><i>Cotizar por WhatsApp →</i></a>
+    <a class="oc" style="background:var(--pink);color:#fff" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20vuelos%20o%20traslados%20nacionales%20o%20internacionales" target="_blank" rel="noopener"><b>Vuelos y traslados</b><span>Nacionales e internacionales</span><i>Cotizar por WhatsApp →</i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="in">
+      <div class="l"><div class="lg"><img src="assets/img/logo.jpg" alt="Caramelo Tours"></div><p class="k">¡No te pierdas la próxima aventura!</p><p>Síguenos y entérate primero de las nuevas salidas, promociones y cupos antes que nadie.</p></div>
+      <div class="soc">
+        <a class="sw" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%20Quiero%20informaci%C3%B3n%20sobre%20un%20paseo" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.01 3C9.38 3 4 8.32 4 14.9c0 2.2.6 4.24 1.65 6.01L4 29l8.3-1.62a12.9 12.9 0 0 0 3.71.55h.01c6.63 0 12-5.32 12-11.9C28 8.32 22.63 3 16.01 3z"/></svg><span>WhatsApp</span></a>
+        <a class="sm" href="mailto:caramelotour22@gmail.com?subject=Consulta%20de%20paseo" aria-label="Escribir a caramelotour22@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5V7" stroke="#4285F4"/><path d="M20.5 18.5V7" stroke="#34A853"/><path d="M3.5 7 12 13.5" stroke="#EA4335"/><path d="M12 13.5 20.5 7" stroke="#FBBC05"/></svg><span>Correo</span></a>
+        <a class="si" href="https://instagram.com/caramelotoursoficial" target="_blank" rel="noopener" aria-label="Instagram @caramelotoursoficial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+        <a class="st" href="https://www.tiktok.com/@caramelotoursoficial" target="_blank" rel="noopener" aria-label="TikTok @caramelotoursoficial"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3.1v12.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6 6 0 1 0 5.1 5.9V8.9a7.4 7.4 0 0 0 4.4 1.4V7.2a4.4 4.4 0 0 1-4.4-4.2z"/></svg><span>TikTok</span></a>
+      </div>
+    </div>
+    <div class="fine"><span>+58 424 251 1630 · caramelotour22@gmail.com · @caramelotoursoficial</span><span>Caramelo Tours · Precios actualizados octubre 2026</span></div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%20Quiero%20informaci%C3%B3n%20sobre%20un%20paseo" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.01 3C9.38 3 4 8.32 4 14.9c0 2.2.6 4.24 1.65 6.01L4 29l8.3-1.62a12.9 12.9 0 0 0 3.71.55h.01c6.63 0 12-5.32 12-11.9C28 8.32 22.63 3 16.01 3z"/></svg><span>Escríbenos</span></a>
+
+<script>
+document.documentElement.classList.add('js');
+var LISTA=[{"id": "morrocoy", "region": "Falcón", "title": "Morrocoy", "from": "REF 45", "fact": "🏝️ Morrocoy tiene más de 30 cayos e islotes de arena blanca: todo un archipiélago para explorar.", "items": [{"group": "Full Day", "name": "Cayo Sombrero + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Azul + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Pescadores + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Mero + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Boca Seca + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Playuela + Bajo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Cayo Varadero", "sub": "", "price": "REF 50"}, {"group": "Full Day", "name": "Cayo Peraza", "sub": "", "price": "REF 45"}, {"group": "Full Day", "name": "Cayo Sal", "sub": "", "price": "REF 45"}, {"group": "Full Day", "name": "Cayo Muerto", "sub": "", "price": "REF 45"}]}, {"id": "ocumare", "region": "Aragua · Choroní", "title": "Ocumare de la Costa", "from": "REF 40", "fact": "🌴 Choroní es cuna del tambor afrovenezolano y su cacao es reconocido en todo el mundo.", "items": [{"group": "Full Day", "name": "La Ciénaga + Paseo", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Bahía de Cata", "sub": "", "price": "REF 40"}, {"group": "Full Day", "name": "Catica", "sub": "", "price": "REF 45"}, {"group": "Full Day", "name": "Playa Grande + Tinikijima", "sub": "Choroní", "price": "REF 50"}, {"group": "Full Day", "name": "Cepe", "sub": "Choroní", "price": "REF 65"}]}, {"id": "mochima", "region": "Sucre", "title": "Mochima", "from": "REF 65", "fact": "🐬 Mochima combina montaña y mar: el Caribe rodeado de la vegetación de un parque nacional.", "items": [{"group": "Full Day", "name": "Isla de Plata + Paseo", "sub": "", "price": "REF 65"}, {"group": "Full Day", "name": "Isla del Faro + Paseo", "sub": "", "price": "REF 65"}, {"group": "Full Day", "name": "Playa Manare + Paseo", "sub": "", "price": "REF 65"}, {"group": "Full Day", "name": "Playa Blanca + Paseo", "sub": "", "price": "REF 65"}, {"group": "Full Day", "name": "Tour Mochima", "sub": "Isla Arapo + Isla Piscina", "price": "REF 65"}, {"group": "Full Day", "name": "Aguas de Moisés", "sub": "", "price": "REF 75"}]}, {"id": "higuerote", "region": "Miranda", "title": "Higuerote", "from": "REF 35", "fact": "🌊 Higuerote es famosa por su cocada y su cercanía a Caracas: ideal para una escapada rápida.", "items": [{"group": "Full Day", "name": "Caracolito", "sub": "", "price": "REF 45"}, {"group": "Full Day", "name": "Bahía de Buche", "sub": "", "price": "REF 40"}, {"group": "Full Day", "name": "La Playita", "sub": "", "price": "REF 40"}, {"group": "Full Day", "name": "Puerto Francés", "sub": "", "price": "REF 35"}]}, {"id": "laguaira", "region": "Litoral central", "title": "La Guaira", "from": "REF 30", "fact": "⛱️ La Guaira es el litoral más cercano a Caracas: perfecto para un plan de un solo día.", "items": [{"group": "Full Day", "name": "Playa Los Ángeles", "sub": "", "price": "REF 30"}, {"group": "Full Day", "name": "Playa Caribe", "sub": "Chuspa", "price": "REF 45"}, {"group": "Full Day", "name": "Playa Los Indios", "sub": "Chuspa", "price": "REF 45"}, {"group": "Full Day", "name": "Playa Banquito", "sub": "Chuspa", "price": "REF 45"}]}, {"id": "otros", "region": "Venezuela", "title": "Otros destinos", "from": "REF 45", "fact": "✨ En un solo país puedes ir de la nieve andina (Mérida) a un arrecife de coral (Los Roques).", "items": [{"group": "Full Day", "name": "Dino Park", "sub": "", "price": "REF 55"}, {"group": "Full Day", "name": "Colonia Tovar", "sub": "", "price": "REF 50"}, {"group": "Full Day", "name": "Galipán", "sub": "", "price": "REF 45"}, {"group": "Full Day", "name": "Parque Dunas", "sub": "", "price": "REF 50"}, {"group": "Full Day", "name": "Tour Falcón", "sub": "3 destinos", "price": "REF 65"}, {"group": "Full Day", "name": "Isla Larga", "sub": "Puerto Cabello", "price": "REF 70"}]}, {"id": "estadias", "region": "Paquetes con alojamiento", "title": "Estadías", "from": "REF 160", "fact": "🏡 Las estadías incluyen posada; consulta disponibilidad de fechas por WhatsApp.", "items": [{"group": "🏝️ Morrocoy", "name": "2 Cayos todo incluido", "sub": "2 días · 1 noche · Posada con piscina", "price": "REF 160"}, {"group": "🌴 Ocumare de la Costa", "name": "La Ciénaga + Bahía de Cata", "sub": "2 días · 1 noche · Todo incluido · posada con piscina", "price": "REF 160"}, {"group": "🌴 Ocumare de la Costa", "name": "Aventura en Choroní", "sub": "2 días · 1 noche · Todo el fin de semana · posada con piscina", "price": "REF 160"}, {"group": "🌴 Ocumare de la Costa", "name": "Cuyagua Camping", "sub": "Camping · Debes llevar tu carpa y todos tus accesorios", "price": "REF 45"}, {"group": "🐬 Mochima", "name": "Aguas de Moisés + Playa Manare + Paseos", "sub": "2 días · 2 noches · Posada sencilla", "price": "REF 170"}, {"group": "🐬 Mochima", "name": "Playa Manare + Isla de Plata", "sub": "2 días · 2 noches · Posada con piscina", "price": "REF 170"}, {"group": "✨ Otros destinos", "name": "Mérida", "sub": "", "price": "REF 240"}, {"group": "✨ Otros destinos", "name": "Margarita", "sub": "", "price": "Consultar"}, {"group": "✨ Otros destinos", "name": "Los Roques", "sub": "", "price": "Consultar"}, {"group": "✨ Otros destinos", "name": "Canaima", "sub": "", "price": "Consultar"}]}];
+(function(){
+  var BAN={morrocoy:'banner-morrocoy',ocumare:'banner-ocumare',mochima:'banner-mochima',higuerote:'banner-higuerote',laguaira:'banner-laguaira',otros:'banner-otros'};
+  var clean=function(s){return s.replace(/^[^\p{L}]+/u,'').trim();};
+  var norm=function(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');};
+  var money=function(p){var m=/(\d+)/.exec(p);return m?parseInt(m[1],10):null;};
+  var qs=new URLSearchParams(location.search);
+  var st={q:'',f:'all',n:Math.max(1,Math.min(20,parseInt(qs.get('n'),10)||1)),sort:false,date:/^\d{4}-\d{2}-\d{2}$/.test(qs.get('f')||'')?qs.get('f'):''};
+  // Estadías se reparten dentro de su destino
+  var dests=LISTA.filter(function(d){return d.id!=='estadias';}).map(function(d){
+    var items=d.items.map(function(i){return {name:i.name,sub:i.sub,price:i.price,kind:'day'};});
+    var stays=(LISTA.filter(function(x){return x.id==='estadias';})[0]||{items:[]}).items.filter(function(i){return clean(i.group)===d.title;}).map(function(i){return {name:i.name,sub:i.sub,price:i.price,kind:'stay'};});
+    return {id:d.id,title:d.title,region:d.region,fact:d.fact,items:items.concat(stays)};
+  });
+  var days=dests.reduce(function(a,d){return a+d.items.filter(function(i){return i.kind==='day';}).length;},0);
+  var stays=dests.reduce(function(a,d){return a+d.items.filter(function(i){return i.kind==='stay';}).length;},0);
+  document.getElementById('facts').innerHTML='<div><b class="num">'+dests.length+'</b><span>destinos</span></div><div><b class="num">'+days+'</b><span>Full Days</span></div><div><b class="num">'+stays+'</b><span>estadías</span></div>';
+  var chips=document.getElementById('chips');
+  chips.innerHTML=dests.map(function(d){return '<a href="#'+d.id+'" data-id="'+d.id+'">'+d.title+'</a>';}).join('');
+  var root=document.getElementById('dests');
+  function wa(d,i){
+    var asks=money(i.price)===null;
+    var t='Hola Caramelo Tours 👋 Quiero '+(asks?'consultar':'reservar')+': '+i.name+' – '+d.title+(asks?'':' ('+i.price+')')+(st.n>1?'. Somos '+st.n+' personas':'')+(st.date?'. Fecha que me interesa: '+st.date.split('-').reverse().join('/')+'. ¿Hay cupo?':'. ¿Qué fechas tienen disponibles?');
+    return 'https://wa.me/584242511630?text='+encodeURIComponent(t);
+  }
+  function ticket(d,i){
+    var v=money(i.price),tot=(v!==null&&st.n>1)?'x '+st.n+' = REF '+(v*st.n):'por persona';
+    var pr=v===null?'<div class="pr ask">Consultar</div>':'<div class="pr num"><small>REF</small>'+v+'</div>';
+    return '<article class="tk"><div class="info"><span class="tag'+(i.kind==='stay'?' stay':'')+'">'+(i.kind==='stay'?'Estadía':'Full Day')+'</span><h3>'+i.name+'</h3>'+(i.sub?'<div class="sub">'+i.sub+'</div>':'')+'</div><div class="buy">'+pr+(v===null?'<div class="tot">cotización directa</div>':'<div class="tot num">'+tot+'</div>')+'<a class="go" target="_blank" rel="noopener" href="'+wa(d,i)+'">'+(v===null?'Consultar':'Reservar')+'</a></div></article>';
+  }
+  var closed={};
+  function render(){
+    var q=norm(st.q.trim()),html='',shown=0;
+    dests.forEach(function(d){
+      var its=d.items.filter(function(i){
+        if(st.f==='day'&&i.kind!=='day')return false;
+        if(st.f==='stay'&&i.kind!=='stay')return false;
+        if(q&&norm(i.name+' '+i.sub+' '+d.title+' '+d.region).indexOf(q)<0)return false;
+        return true;});
+      var link=document.querySelector('.chips a[data-id="'+d.id+'"]');
+      if(link)link.style.display=its.length?'':'none';
+      if(!its.length)return;
+      shown++;
+      if(st.sort)its=its.slice().sort(function(a,b){var x=money(a.price),y=money(b.price);return (x===null?1e9:x)-(y===null?1e9:y);});
+      var vals=its.map(function(i){return money(i.price);}).filter(function(x){return x!==null;});
+      var from=vals.length?Math.min.apply(null,vals):null;
+      var dd=its.filter(function(i){return i.kind==='day';}),ss=its.filter(function(i){return i.kind==='stay';});
+      html+='<section class="dest rv'+(closed[d.id]?' closed':'')+'" id="'+d.id+'" data-id="'+d.id+'"><div class="ban candy" role="button" tabindex="0" aria-expanded="'+(closed[d.id]?'false':'true')+'" aria-label="'+d.title+', mostrar u ocultar opciones"><img src="assets/img/'+BAN[d.id]+'.jpg" alt=""><div class="in"><span class="reg">'+d.region+'</span><h2>'+d.title+'</h2></div>'+(from!==null?'<div class="from">desde <b class="num">REF '+from+'</b></div>':'')+'<span class="tog" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></span></div>'
+       +'<div class="body"'+(closed[d.id]?' style="max-height:0"':'')+'>'
+       +(d.fact?'<div class="fact"><span class="hand">¿Sabías que?</span><span>'+d.fact.replace(/^[^\p{L}]+/u,'')+'</span></div>':'')
+       +(dd.length?'<div class="grp">Full Day</div><div class="tickets">'+dd.map(function(i){return ticket(d,i);}).join('')+'</div>':'')
+       +(ss.length?'<div class="grp">Estadías en '+d.title+'</div><div class="tickets">'+ss.map(function(i){return ticket(d,i);}).join('')+'</div>':'')
+       +'</div></section>';
+    });
+    if(!shown)html='<div class="empty"><b>Ups</b>No encontramos ese plan. Escríbenos y te ayudamos a armarlo.</div>';
+    root.innerHTML=html;
+    observe();
+  }
+  var io=null;
+  function observe(){
+    var els=root.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){return;}
+    if(!io)io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el,i){
+      var r=el.getBoundingClientRect();
+      if(r.top>window.innerHeight*1.0){el.classList.add('pre');io.observe(el);}
+    });
+  }
+  // toggles
+  root.addEventListener('click',function(e){var b=e.target.closest('.ban');if(!b)return;toggle(b.parentNode);});
+  root.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('ban')){e.preventDefault();toggle(e.target.parentNode);}});
+  function toggle(sec){
+    var id=sec.dataset.id,body=sec.querySelector('.body'),ban=sec.querySelector('.ban');
+    closed[id]=!closed[id];
+    sec.classList.toggle('closed',closed[id]);
+    ban.setAttribute('aria-expanded',closed[id]?'false':'true');
+    if(closed[id]){body.style.maxHeight=body.scrollHeight+'px';requestAnimationFrame(function(){body.style.maxHeight='0';});}
+    else{body.style.maxHeight=body.scrollHeight+'px';setTimeout(function(){body.style.maxHeight='';},520);}
+  }
+  var $=function(id){return document.getElementById(id);};
+  $('q').addEventListener('input',function(e){st.q=e.target.value;render();});
+  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+    st.f=b.dataset.f;document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render();});});
+  function setN(n){st.n=Math.max(1,Math.min(20,n));$('n-out').textContent=st.n;render();}
+  $('minus').addEventListener('click',function(){setN(st.n-1);});
+  $('plus').addEventListener('click',function(){setN(st.n+1);});
+  $('sort').addEventListener('click',function(){st.sort=!st.sort;this.setAttribute('aria-pressed',st.sort?'true':'false');render();});
+  chips.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;e.preventDefault();var sec=$(a.dataset.id);if(!sec)return;if(closed[a.dataset.id]){toggle(sec);}sec.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+a.dataset.id);});
+  // chip activo
+  var spy=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.chips a').forEach(function(a){a.classList.toggle('on',a.dataset.id===e.target.dataset.id);var on=document.querySelector('.chips a.on');if(on&&on.scrollIntoView)on.parentNode.scrollTo({left:on.offsetLeft-40,behavior:'smooth'});});}});},{rootMargin:'-30% 0px -60% 0px'});
+  var _render=render;render=function(){_render();spy.disconnect();root.querySelectorAll('.dest').forEach(function(s){spy.observe(s);});};
+  // fab
+  var fab=$('fab'),ft=document.querySelector('footer');
+  function fabChk(){var r=ft.getBoundingClientRect();fab.classList.toggle('off',r.top<window.innerHeight-40);}
+  window.addEventListener('scroll',fabChk,{passive:true});window.addEventListener('resize',fabChk);
+  $('n-out').textContent=st.n;render();fabChk();
+  if(location.hash){var t=$(location.hash.slice(1));if(t){setTimeout(function(){t.scrollIntoView({block:'start'});},200);}}
+})();
+</script>
+</body>
+</html>

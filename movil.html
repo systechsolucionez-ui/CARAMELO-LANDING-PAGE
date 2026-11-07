@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caramelo Tours · Vista celular (Fase 1, boceto)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EA}
+@keyframes cm-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes cm-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%,100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+@keyframes cm-shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(220%) skewX(-20deg)}}
+@keyframes cm-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cm-float{animation:cm-float 4s ease-in-out infinite}
+.cm-pulse{animation:cm-pulse 2.2s infinite}
+.cm-shine{position:relative;overflow:hidden}
+.cm-shine:after{content:"";position:absolute;top:0;bottom:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:cm-shine 3.2s ease-in-out infinite}
+.cm-marquee{display:flex;width:max-content;animation:cm-marquee 22s linear infinite}
+@keyframes cm-wave{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cm-wave{display:flex;width:400%;animation:cm-wave 12s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+</head>
+<body>
+
+<div style="width:390px;height:2420px;box-sizing:border-box;background:#FFF6EA;color:#1B2A3C;font-family:'Inter',sans-serif;overflow:hidden;position:relative">
+
+<!-- Pantalla 1: hero a pantalla completa con video -->
+<div style="position:relative;height:844px;overflow:hidden;background:#12B3D6">
+<video src="assets/video/flota.mp4" poster="assets/img/poster-flota.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,48,.55) 0%,rgba(8,30,48,0) 28%,rgba(8,30,48,0) 38%,rgba(8,30,48,.88) 100%)"></div>
+<div style="position:absolute;left:0;right:0;top:0;overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#E0447B,#FF8A1F);color:#fff"><div class="cm-marquee" style="padding:8px 0;font-size:12px;font-weight:700"><span style="padding:0 20px">Salidas todos los fines de semana</span><span style="padding:0 20px">Cupos por WhatsApp</span><span style="padding:0 20px">Bs · USD · USDT</span><span style="padding:0 20px">Salidas todos los fines de semana</span><span style="padding:0 20px">Cupos por WhatsApp</span><span style="padding:0 20px">Bs · USD · USDT</span></div></div>
+<div style="position:absolute;left:16px;right:16px;top:44px;display:flex;justify-content:space-between;align-items:center">
+<div style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="assets/img/logo.jpg" alt="Caramelo Tours" style="width:66px;height:66px;object-fit:contain"></div>
+<span style="padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.9);font-size:13px;font-weight:700">USD</span>
+</div>
+<div class="cm-float" style="position:absolute;right:16px;top:140px;background:#fff;border-radius:14px;padding:9px 13px;box-shadow:0 14px 24px -12px rgba(0,0,0,.6)"><div style="font-size:10px;font-weight:800;letter-spacing:1.2px;color:#8A4300">PRECIOS POR PERSONA</div><b style="font-family:'Outfit',sans-serif;font-size:17px">En REF · octubre 2026</b></div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;display:flex;flex-direction:column;gap:14px;color:#fff">
+<span style="font-family:'Pacifico',cursive;font-size:20px;color:#FFC38A">la dulce manera de viajar</span>
+<h1 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-1px">Reserva tu próxima aventura</h1>
+<div style="display:flex;gap:8px"><span style="padding:9px 14px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;font-size:13px;font-weight:800">Venezuela</span><span style="padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.22);font-size:13px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20internacional">Internacional</span><span style="padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.22);font-size:13px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20vuelos%20o%20traslados%20nacionales%20o%20internacionales">Vuelos y traslados</span></div>
+<span class="cm-shine" style="padding:17px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;text-align:center;font-size:17px;font-weight:800" data-link="venezuela.html">Ver salidas del mes</span>
+</div>
+<div class="cm-pulse" style="position:absolute;right:16px;bottom:230px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#0B2E18;font-weight:800;font-size:11px">WA</div>
+</div>
+
+<!-- Pantalla 2: sectores como tarjetas verticales tipo historias -->
+<div style="padding:28px 16px 0;display:flex;flex-direction:column;gap:14px">
+<h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.5px">Elige tu aventura</h2>
+<div style="display:flex;gap:12px;overflow:hidden">
+<div style="position:relative;flex:0 0 200px;height:300px;border-radius:22px;overflow:hidden;background:#FF8A1F"><video src="assets/video/palmas.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(150,70,0,.9),rgba(150,70,0,0) 60%)"></div><div style="position:absolute;left:14px;right:14px;bottom:14px;color:#fff"><span style="padding:4px 9px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;font-size:10px;font-weight:800">VENEZUELA</span><b style="display:block;font-family:'Outfit',sans-serif;font-size:22px;line-height:1.05;margin-top:6px">Full Days y privados</b></div></div>
+<div style="position:relative;flex:0 0 200px;height:300px;border-radius:22px;overflow:hidden;background:#12B3D6"><video src="assets/video/atardecer.mp4" poster="assets/img/poster-atardecer.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,70,92,.9),rgba(5,70,92,0) 60%)"></div><div style="position:absolute;left:14px;right:14px;bottom:14px;color:#fff"><span style="padding:4px 9px;border-radius:999px;background:#12B3D6;color:#1B2A3C;font-size:10px;font-weight:800">INTERNACIONAL</span><b style="display:block;font-family:'Outfit',sans-serif;font-size:22px;line-height:1.05;margin-top:6px">Destinos internacionales</b></div></div>
+<div style="position:relative;flex:0 0 200px;height:300px;border-radius:22px;overflow:hidden;background:#D9356F"><video src="assets/video/olas.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(130,20,60,.9),rgba(130,20,60,0) 60%)"></div><div style="position:absolute;left:14px;right:14px;bottom:14px;color:#fff"><span style="padding:4px 9px;border-radius:999px;background:#D9356F;font-size:10px;font-weight:800">VUELOS Y TRASLADOS</span><b style="display:block;font-family:'Outfit',sans-serif;font-size:22px;line-height:1.05;margin-top:6px">Vuelos y traslados</b></div></div>
+</div>
+<span style="font-size:13px;font-weight:700;color:#4A5D72">Desliza para ver los tres sectores →</span>
+</div>
+
+<!-- Salida destacada -->
+<div style="padding:26px 16px 0">
+<div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 16px 30px -22px rgba(27,42,60,.5)">
+<div style="height:150px;overflow:hidden"><img src="assets/img/bote.jpg" alt="Bote en la orilla" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="padding:16px;display:flex;flex-direction:column;gap:7px"><span style="font-size:11px;font-weight:800;letter-spacing:1.2px;color:#8A4300">FULL DAY · SÁB 14 NOV</span><b style="font-family:'Outfit',sans-serif;font-size:22px">Cayo Sombrero</b>
+<div style="height:7px;border-radius:99px;background:#F4EBDD;overflow:hidden"><div style="width:78%;height:100%;background:linear-gradient(90deg,#FF8A1F,#D9356F)"></div></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:20px;color:#B8255A">[PRECIO]</b><span style="padding:11px 20px;border-radius:999px;background:#FF8A1F;font-weight:800;font-size:14px">Reservar</span></div></div>
+</div>
+</div>
+
+<!-- Banda azul con video del mar detrás -->
+<div style="position:relative;margin-top:36px;overflow:hidden;background:#12B3D6">
+<video src="assets/video/aguas.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,179,214,.50),rgba(10,140,180,.60))"></div>
+<div style="position:absolute;left:0;top:-1px;right:0;height:40px;overflow:hidden"><div class="cm-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:25%;height:40px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:25%;height:40px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:25%;height:40px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:25%;height:40px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg></div></div>
+<div style="position:relative;padding:70px 16px 40px;display:flex;flex-direction:column;gap:14px;color:#fff">
+<span style="font-family:'Pacifico',cursive;font-size:20px;color:#FFE27A">viviendo la aventura</span>
+<h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:34px;line-height:1.05;text-shadow:0 3px 16px rgba(0,40,70,.4)">Ellos ya vivieron la aventura</h2>
+<div style="background:#fff;color:#1B2A3C;border-radius:20px;padding:20px"><b style="font-family:'Outfit',sans-serif;font-size:44px;color:#D9356F;line-height:1">[N]+</b><div style="font-size:14px;color:#3B4E63">viajeros felices</div></div>
+<div style="background:#fff;color:#1B2A3C;border-radius:20px;padding:20px"><div style="font-family:'Outfit',sans-serif;font-size:19px;line-height:1.35;font-weight:600">“[Testimonio real de un cliente]”</div><b style="font-size:13px;color:#B8255A;display:block;margin-top:8px">[Nombre] · [Destino]</b></div>
+<div style="display:flex;gap:10px"><span style="flex:1;padding:13px;border-radius:999px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);text-align:center;font-weight:800;font-size:14px">Instagram</span><span style="flex:1;padding:13px;border-radius:999px;background:#010101;box-shadow:inset 2px 0 0 #25f4ee,inset -2px 0 0 #fe2c55;text-align:center;font-weight:800;font-size:14px">TikTok</span></div>
+</div>
+</div>
+
+<!-- Cierre: el mar te está esperando -->
+<div style="position:relative;overflow:hidden;background:#E0447B;text-align:center;color:#fff;margin-top:-1px">
+<div style="position:absolute;inset:0;display:flex;gap:6px;background:#E0447B"><video src="assets/video/estela.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="flex:1 1 0;min-width:0;height:100%;object-fit:cover"></video><video src="assets/video/rocas.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="flex:1 1 0;min-width:0;height:100%;object-fit:cover"></video></div>
+<div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(224,68,123,.58),rgba(255,138,31,.50))"></div>
+<div style="position:relative;padding:60px 20px 56px;display:flex;flex-direction:column;gap:12px;align-items:center">
+<span style="font-family:'Pacifico',cursive;font-size:20px;color:#FFE27A">la dulce manera de viajar</span>
+<h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:42px;line-height:1.02;text-shadow:0 4px 20px rgba(90,10,40,.4)">El mar te está esperando</h2>
+<p style="margin:0 0 6px;font-size:16px">Escríbenos y te armamos el plan.</p>
+<span class="cm-shine" style="padding:17px 24px;border-radius:999px;background:#fff;color:#8F1A45;font-size:16px;font-weight:800">WhatsApp · +58 424 251 1630</span>
+</div>
+</div>
+
+<!-- Contactos -->
+<div style="background:#0F2236;color:#fff;padding:32px 16px 110px;display:flex;flex-direction:column;gap:14px">
+<p style="margin:0;font-size:22px;font-weight:800;font-family:'Outfit',sans-serif;background:linear-gradient(90deg,#FF6FA0,#FFB36B);-webkit-background-clip:text;background-clip:text;color:transparent">¡No te pierdas la próxima aventura!</p>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;text-align:center;font-weight:800;font-size:12px">
+<span style="padding:14px 2px;border-radius:16px;background:#25D366">WhatsApp</span><span style="padding:14px 2px;border-radius:16px;background:#fff;color:#3c4043;border-bottom:3px solid #4285F4">Correo</span><span style="padding:14px 2px;border-radius:16px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)">Instagram</span><span style="padding:14px 2px;border-radius:16px;background:#010101;box-shadow:inset 2px 0 0 #25f4ee,inset -2px 0 0 #fe2c55">TikTok</span>
+</div>
+<span style="font-size:12px;color:#8FA3B8">@caramelotoursoficial · caramelotour22@gmail.com</span>
+</div>
+
+<!-- Barra fija inferior -->
+<div style="position:absolute;left:0;right:0;bottom:0;padding:12px 16px;background:rgba(255,246,234,.96);border-top:1px solid #F0DFC8;display:flex;gap:10px">
+<span style="flex:1;padding:14px;border-radius:999px;background:#FF8A1F;text-align:center;font-weight:800;font-size:15px">Reservar</span>
+<span style="flex:0 0 auto;padding:14px 18px;border-radius:999px;background:#25D366;color:#0B2E18;font-weight:800;font-size:14px">+58 424 251 1630</span>
+</div>
+
+</div>
+
+<style>[data-link]{cursor:pointer}select,input{font-family:inherit}</style><script>
+document.addEventListener('click',function(e){var el=e.target.closest('[data-link]');if(!el)return;var u=el.getAttribute('data-link');if(el.hasAttribute('data-search')){var d=document.getElementById('s-dest').value,n=document.getElementById('s-n').value,f=document.getElementById('s-date').value;u='venezuela.html?n='+n+(f?'&f='+f:'')+(d?'#'+d:'');}if(/^https?:/.test(u)){window.open(u,'_blank','noopener');}else{location.href=u;}});
+</script>
+</body>
+</html>

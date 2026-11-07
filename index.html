@@ -330,14 +330,15 @@ function items(){
   if(st)st.items.forEach(function(i){var g=clean(i.group),d=LISTA.filter(function(x){return x.title===g;})[0];if(d)out.push({d:d,n:i.name,sub:i.sub,p:num(i.price),raw:i.price,k:'Estadía'});});
   return out;
 }
+var touched=false;
 function render(){
   var id=$('s-dest').value,n=parseInt($('s-n').value,10)||1,f=$('s-date').value;
   var all=items().filter(function(x){return (!id||x.d.id===id)&&x.p!==null&&x.k==='Full Day';}).sort(function(a,b){return a.p-b.p;});
   var box=$('s-res');
-  if(!all.length){box.innerHTML='';return;}
+  if(!touched||!all.length){box.innerHTML='';return;}
   var show=all.slice(0,4),min=all[0].p;
   var title=id?(all[0].d.title):'todos los destinos';
-  var h='<div style="margin:6px 4px 2px;padding-top:14px;border-top:2px dashed #EBD9C2;display:flex;gap:12px;flex-wrap:wrap;align-items:baseline;justify-content:space-between"><div style="font-weight:800;font-size:15px">'+title+': desde <span style="color:#B8255A;font-family:Outfit,sans-serif;font-size:20px">REF '+min+'</span> por persona <span style="color:#5C6E82;font-weight:700">· para '+n+(n>1?' personas':' persona')+' desde <b style="color:#B8255A">REF '+(min*n)+'</b></span></div><div style="font-size:12px;color:#5C6E82;font-weight:700">Precios en REF, octubre 2026</div></div>';
+  var h='<style>@keyframes sres{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}#s-res>div{animation:sres .4s ease both}</style><div style="margin:6px 4px 2px;padding-top:14px;border-top:2px dashed #EBD9C2;display:flex;gap:12px;flex-wrap:wrap;align-items:baseline;justify-content:space-between"><div style="font-weight:800;font-size:15px">'+title+': desde <span style="color:#B8255A;font-family:Outfit,sans-serif;font-size:20px">REF '+min+'</span> por persona <span style="color:#5C6E82;font-weight:700">· para '+n+(n>1?' personas':' persona')+' desde <b style="color:#B8255A">REF '+(min*n)+'</b></span></div><div style="font-size:12px;color:#5C6E82;font-weight:700">Precios en REF, octubre 2026</div></div>';
   h+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:8px 0 4px">';
   show.forEach(function(x){
     var t='Hola Caramelo Tours \uD83D\uDC4B Quiero reservar: '+x.n+' \u2013 '+x.d.title+' ('+x.raw+')'+(n>1?'. Somos '+n+' personas':'')+(f?'. Fecha que me interesa: '+f.split('-').reverse().join('/')+'. \u00BFHay cupo?':'. \u00BFQu\u00E9 fechas tienen disponibles?');
@@ -346,7 +347,7 @@ function render(){
   h+='</div><div style="margin:2px 4px 4px;font-size:13px;color:#5C6E82;font-weight:600">Mostrando las '+show.length+' opciones m\u00E1s econ\u00F3micas. Pulsa \u201CBuscar salidas\u201D para ver las '+all.length+' opciones.</div>';
   box.innerHTML=h;
 }
-['s-dest','s-n','s-date'].forEach(function(i){$(i).addEventListener('change',render);$(i).addEventListener('input',render);});
+['s-dest','s-n','s-date'].forEach(function(i){$(i).addEventListener('change',function(){touched=true;render();});$(i).addEventListener('input',function(){touched=true;render();});});
 render();
 })();
 </script>

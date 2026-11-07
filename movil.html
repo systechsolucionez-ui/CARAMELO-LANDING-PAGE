@@ -112,7 +112,11 @@ body{margin:0;background:#FFF6EA}
 </div>
 
 <style>[data-link]{cursor:pointer}select,input{font-family:inherit}</style><script>
-document.addEventListener('click',function(e){var el=e.target.closest('[data-link]');if(!el)return;var u=el.getAttribute('data-link');if(el.hasAttribute('data-search')){var d=document.getElementById('s-dest').value,n=document.getElementById('s-n').value,f=document.getElementById('s-date').value;u='venezuela.html?n='+n+(f?'&f='+f:'')+(d?'#'+d:'');}if(/^https?:/.test(u)){window.open(u,'_blank','noopener');}else{location.href=u;}});
+document.addEventListener('click',function(e){var el=e.target.closest('[data-link]');if(!el)return;var u=el.getAttribute('data-link');if(el.hasAttribute('data-wa')){var $=function(i){return document.getElementById(i);},M='Hola Caramelo Tours \uD83D\uDC4B ',t;
+if(el.getAttribute('data-wa')==='priv'){var d=$('p-dest').value.trim(),n=parseInt($('p-n').value,10);t=M+'Quiero cotizar un viaje privado '+$('p-tipo').value+(d?' a '+d:'')+(n>0?'. Somos '+n+(n>1?' personas':' persona'):'')+'.';}
+else{var d2=$('v-dest').value.trim(),n2=parseInt($('v-n').value,10),f=$('v-date').value;t=M+'Quiero cotizar un '+($('v-tipo').value==='vuelo'?'vuelo':'traslado')+(d2?' a '+d2:'')+(f?' para el '+f.split('-').reverse().join('/'):'')+(n2>0?'. Somos '+n2+(n2>1?' pasajeros':' pasajero'):'')+'.';}
+u='https://wa.me/584242511630?text='+encodeURIComponent(t);}
+if(el.hasAttribute('data-search')){var d=document.getElementById('s-dest').value,n=document.getElementById('s-n').value,f=document.getElementById('s-date').value;u='venezuela.html?n='+n+(f?'&f='+f:'')+(d?'#'+d:'');}if(/^https?:/.test(u)){window.open(u,'_blank','noopener');}else{location.href=u;}});
 </script>
 </body>
 </html>

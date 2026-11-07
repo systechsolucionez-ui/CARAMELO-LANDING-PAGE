@@ -54,7 +54,7 @@ h1 em{font-style:normal;color:var(--pink)}
 .facts b{display:block;font-family:var(--f-display);font-size:26px;line-height:1.1;color:var(--pink-d)}
 .facts span{font-size:13px;color:var(--ink-3);font-weight:600}
 .hero .vid{position:relative;flex:0 1 400px;min-width:260px;width:100%}
-.candy{clip-path:polygon(44px 0,calc(100% - 44px) 0,100% 18%,calc(100% - 30px) 50%,100% 82%,calc(100% - 44px) 100%,44px 100%,0 82%,30px 50%,0 18%)}
+.candy{border-radius:44px;overflow:hidden}
 .hero .vid .box{aspect-ratio:9/11;max-height:560px;background:var(--cyan);position:relative}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sun{position:absolute;right:-6px;top:-26px;width:96px;height:96px;object-fit:contain;animation:spin 24s linear infinite;pointer-events:none}
@@ -92,16 +92,16 @@ h1 em{font-style:normal;color:var(--pink)}
 
 /* destinos */
 .dest{padding-top:56px;scroll-margin-top:70px}
-.ban{position:relative;height:300px;overflow:hidden;background:#0b2e40;cursor:pointer}
+.ban{position:relative;border-radius:36px;height:300px;overflow:hidden;background:#0b2e40;cursor:pointer}
 .ban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 22s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
 .ban:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,28,.78) 0%,rgba(10,12,28,.12) 70%)}
-.ban .in{position:absolute;z-index:2;left:clamp(50px,6vw,80px);right:20px;bottom:26px;color:#fff;display:flex;flex-direction:column;gap:6px}
+.ban .in{position:absolute;z-index:2;left:clamp(24px,4vw,44px);right:20px;bottom:26px;color:#fff;display:flex;flex-direction:column;gap:6px}
 .ban .reg{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;opacity:.92}
 .ban h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.02em;text-wrap:balance}
-.ban .from{position:absolute;z-index:2;right:clamp(46px,5vw,70px);top:22px;background:#fff;color:var(--ink);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700}
+.ban .from{position:absolute;z-index:2;right:20px;top:20px;background:#fff;color:var(--ink);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700}
 .ban .from b{color:var(--pink-d);font-size:17px;font-family:var(--f-display)}
-.ban .tog{position:absolute;z-index:2;right:clamp(46px,5vw,70px);bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:0;transition:transform .3s}
+.ban .tog{position:absolute;z-index:2;right:20px;bottom:22px;width:44px;height:44px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:0;transition:transform .3s}
 .ban .tog svg{width:20px;height:20px;color:var(--ink)}
 .dest.closed .tog{transform:rotate(180deg)}
 .fact{margin:18px 4px 0;display:flex;gap:12px;align-items:center;font-size:15px;color:var(--ink-2)}

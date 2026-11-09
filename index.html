@@ -20,7 +20,7 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 @keyframes cm-rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
 @keyframes cm-spin{to{transform:rotate(360deg)}}
 @keyframes cm-sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-@keyframes cm-plane{0%{transform:translate(-160px,40px) rotate(8deg)}100%{transform:translate(1500px,-90px) rotate(8deg)}}
+@keyframes cm-plane{0%{transform:translate(-160px,10px) rotate(5deg)}100%{transform:translate(105vw,-6px) rotate(5deg)}}
 @keyframes cm-bubble{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.8}100%{transform:translateY(-520px) scale(1.2);opacity:0}}
 @keyframes cm-pop{from{opacity:0;transform:scale(.92) translateY(14px)}to{opacity:1;transform:none}}
 @keyframes cm-wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
@@ -61,6 +61,26 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 .cm-soc:hover{transform:translateY(-6px) rotate(-1.5deg);filter:brightness(1.1);color:#fff}
 .cm-soc svg{width:34px;height:34px}
 @supports (animation-timeline:view()){.cm-reveal{animation:cm-rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}}
+@media (max-width:760px){
+.cm-nav{padding:8px 16px!important;gap:10px!important}
+.cm-logo{order:1;width:104px!important}
+.cm-navr{order:2;margin-left:auto}
+.cm-pay{display:none!important}
+.cm-wabtn{padding:10px 16px!important;font-size:13px!important}
+.cm-sectors{order:3;width:100%;box-sizing:border-box;gap:4px!important;flex-wrap:nowrap!important}
+.cm-sectors>span{flex:1 1 0;min-width:0;text-align:center;padding:10px 4px!important;font-size:12.5px!important;line-height:1.2}
+.cm-lane{height:46px!important}
+.cm-plane{width:96px!important}
+.cm-hero{padding:6px 16px 0!important;gap:44px!important}
+.cm-htxt{padding-bottom:0!important;gap:16px!important}
+.cm-pill{white-space:normal!important;font-size:12px!important;line-height:1.3}
+.cm-h1{font-size:44px!important;letter-spacing:-1px!important}
+.cm-htxt p{font-size:17px!important}
+.cm-ctas>span{flex:1 1 100%;text-align:center;box-sizing:border-box}
+.cm-vid{min-width:0!important;width:100%;flex:1 1 100%!important;margin-bottom:56px!important}
+.cm-sun{width:68px!important;height:68px!important;top:-76px!important;right:8px!important}
+.cm-bubble{display:none!important}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -78,48 +98,46 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 </div>
 
 <!-- Nav -->
-<div style="max-width:1280px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative;z-index:3">
-<img src="assets/img/logo.png" alt="Caramelo Tours" style="width:150px;height:auto;object-fit:contain">
-<div style="display:flex;gap:6px;background:#fff;border-radius:16px;padding:5px;box-shadow:0 10px 24px -16px rgba(27,42,60,.5);flex-wrap:wrap">
+<div class="cm-nav" style="max-width:1280px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative;z-index:3">
+<img class="cm-logo" src="assets/img/logo.png" alt="Caramelo Tours" style="width:150px;height:auto;object-fit:contain">
+<div class="cm-sectors" style="display:flex;gap:6px;background:#fff;border-radius:16px;padding:5px;box-shadow:0 10px 24px -16px rgba(27,42,60,.5);flex-wrap:wrap">
 <span style="padding:11px 20px;border-radius:12px;background:#FF8A1F;font-size:14px;font-weight:800">Venezuela</span>
 <span style="padding:11px 20px;border-radius:12px;font-size:14px;font-weight:700;color:#4A5D72" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20internacional">Internacional</span>
 <span style="padding:11px 20px;border-radius:12px;font-size:14px;font-weight:700;color:#4A5D72" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20vuelos%20o%20traslados%20nacionales%20o%20internacionales">Vuelos y traslados</span>
 </div>
-<div style="display:flex;gap:12px;align-items:center">
-<span style="padding:11px 14px;border-radius:12px;background:#fff;font-size:13px;font-weight:700">Bs · USD · USDT</span>
-<a class="cm-pulse" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%20Quiero%20informaci%C3%B3n%20sobre%20un%20paseo" style="display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:#25D366;color:#0B2E18;font-size:14px;font-weight:800;text-decoration:none">
+<div class="cm-navr" style="display:flex;gap:12px;align-items:center">
+<span class="cm-pay" style="padding:11px 14px;border-radius:12px;background:#fff;font-size:13px;font-weight:700">Bs · USD · USDT</span>
+<a class="cm-pulse cm-wabtn" href="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%20Quiero%20informaci%C3%B3n%20sobre%20un%20paseo" style="display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:#25D366;color:#0B2E18;font-size:14px;font-weight:800;text-decoration:none">
 <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor" style="width:20px;height:20px"><path d="M16.01 3C9.38 3 4 8.32 4 14.9c0 2.2.6 4.24 1.65 6.01L4 29l8.3-1.62a12.9 12.9 0 0 0 3.71.55h.01c6.63 0 12-5.32 12-11.9C28 8.32 22.63 3 16.01 3zm0 21.68h-.01a9.9 9.9 0 0 1-5.06-1.39l-.36-.21-4.93.96.99-4.77-.24-.38a9.63 9.63 0 0 1-1.51-5.09c0-5.35 4.4-9.7 9.82-9.7 2.63 0 5.1 1.02 6.95 2.86a9.5 9.5 0 0 1 2.87 6.84c0 5.35-4.4 9.88-9.52 9.88zm5.38-7.4c-.29-.15-1.73-.85-2-.95-.27-.1-.47-.15-.66.15-.2.29-.76.94-.93 1.14-.17.19-.34.22-.63.07-.29-.15-1.24-.45-2.36-1.44-.87-.77-1.46-1.71-1.63-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.02-.51-.08-.15-.66-1.58-.91-2.16-.24-.57-.48-.5-.66-.5-.17-.01-.36-.01-.56-.01s-.51.07-.78.36c-.27.29-1.02 1-1.02 2.43 0 1.43 1.05 2.82 1.2 3.01.15.19 2.06 3.14 5 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.73-.7 1.97-1.39.24-.68.24-1.26.17-1.39-.07-.13-.27-.2-.56-.34z"/></svg>
 +58 424 251 1630</a>
 </div>
 </div>
 
+<!-- Carril del avión: vuela sobre una franja propia, sin cruzar textos -->
+<div class="cm-lane" aria-hidden="true" style="position:relative;height:54px;overflow:hidden;pointer-events:none"><img class="cm-plane" src="assets/img/avion.png" alt="" style="position:absolute;left:0;top:4px;width:120px;height:auto"></div>
+
 <!-- Hero -->
-<div style="position:relative;max-width:1280px;margin:0 auto;padding:12px 32px 0;display:flex;gap:40px;flex-wrap:wrap;align-items:center">
+<div class="cm-hero" style="position:relative;max-width:1280px;margin:0 auto;padding:12px 32px 0;display:flex;gap:40px;flex-wrap:wrap;align-items:center">
 <div style="position:absolute;left:-140px;top:-40px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,31,.30),rgba(255,138,31,0) 65%);pointer-events:none"></div>
 <!-- Decoración viva: sol, palmera, avión, burbujas -->
-<img class="cm-spin" src="assets/img/sol.png" alt="" aria-hidden="true" style="position:absolute;left:44%;top:-8px;width:120px;height:120px;pointer-events:none;object-fit:contain">
-<img class="cm-plane" src="assets/img/avion.png" alt="" aria-hidden="true" style="position:absolute;left:0;top:112px;width:120px;height:auto;pointer-events:none;z-index:2">
 <div class="cm-bubble" style="position:absolute;left:52%;bottom:80px;width:18px;height:18px;border-radius:50%;border:2px solid #12B3D6;pointer-events:none"></div>
 <div class="cm-bubble" style="position:absolute;left:58%;bottom:60px;width:12px;height:12px;border-radius:50%;border:2px solid #FF8A1F;animation-delay:-3s;pointer-events:none"></div>
 <div class="cm-bubble" style="position:absolute;left:48%;bottom:110px;width:24px;height:24px;border-radius:50%;border:2px solid #D9356F;animation-delay:-5s;pointer-events:none"></div>
-<div style="position:relative;flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:20px;padding-bottom:70px">
-<span class="cm-rise" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FFE3C2;color:#7A3C00;font-size:13px;font-weight:800">Full Days · Viajes privados · Vuelos y traslados</span>
-<h1 class="cm-rise" style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:76px;line-height:1.04;letter-spacing:-1.5px">Reserva tu próxima<span style="display:block;height:1.05em;overflow:hidden"><span class="cm-words" style="color:#D9356F"><span style="display:block;height:1.05em">aventura</span><span style="display:block;height:1.05em">escapada</span><span style="display:block;height:1.05em">playa</span><span style="display:block;height:1.05em">cayo</span><span style="display:block;height:1.05em">aventura</span></span></span></h1>
+<div class="cm-htxt" style="position:relative;flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:20px;padding-bottom:70px">
+<span class="cm-rise cm-pill" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FFE3C2;color:#7A3C00;font-size:13px;font-weight:800">Full Days · Viajes privados · Vuelos y traslados</span>
+<h1 class="cm-rise cm-h1" style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:76px;line-height:1.04;letter-spacing:-1.5px">Reserva tu próxima<span style="display:block;height:1.05em;overflow:hidden"><span class="cm-words" style="color:#D9356F"><span style="display:block;height:1.05em">aventura</span><span style="display:block;height:1.05em">escapada</span><span style="display:block;height:1.05em">playa</span><span style="display:block;height:1.05em">cayo</span><span style="display:block;height:1.05em">aventura</span></span></span></h1>
 <p class="cm-rise" style="margin:0;font-size:19px;line-height:1.55;color:#3B4E63;max-width:500px">Mira el mar antes de llegar. Elige tu fecha, revisa qué incluye y reserva en minutos, con un asesor de carne y hueso al otro lado del WhatsApp.</p>
-<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px">
+<div class="cm-ctas" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px">
 <span class="cm-shine cm-wiggle" style="padding:18px 32px;border-radius:999px;background:#FF8A1F;font-size:17px;font-weight:800;box-shadow:0 16px 28px -12px rgba(255,138,31,.9)" data-link="venezuela.html">Ver salidas del mes</span>
 <span style="padding:16px 28px;border-radius:999px;border:2px solid #1B2A3C;font-size:17px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20privado">Armar viaje privado</span>
 </div>
-<div style="font-family:'Pacifico',cursive;font-size:24px;color:#D9356F;transform:rotate(-3deg);margin-top:4px">la dulce manera de viajar</div>
+<div style="font-family:'Pacifico',cursive;font-size:24px;color:#D9356F;margin-top:4px">la dulce manera de viajar</div>
 </div>
-<div style="position:relative;flex:0 1 460px;min-width:300px;margin-bottom:70px">
+<div class="cm-vid" style="position:relative;flex:0 1 460px;min-width:300px;margin-bottom:70px">
+<img class="cm-spin cm-sun" src="assets/img/sol.png" alt="" aria-hidden="true" style="position:absolute;right:10px;top:-98px;width:92px;height:92px;pointer-events:none;object-fit:contain;z-index:2">
 <div style="position:relative;width:100%;aspect-ratio:9/11;max-height:640px;border-radius:44px;overflow:hidden;background:#12B3D6">
 <video src="assets/video/flota.mp4" poster="assets/img/poster-flota.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
 </div>
-<div class="cm-float" style="position:absolute;left:-28px;top:60px;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 18px 30px -14px rgba(27,42,60,.55);--r:-4deg">
-<div style="font-size:11px;font-weight:800;letter-spacing:1.4px;color:#8A4300">PRECIOS POR PERSONA</div><b style="font-family:'Outfit',sans-serif;font-size:20px">En REF · octubre 2026</b></div>
-<div class="cm-float2" style="position:absolute;right:-20px;bottom:90px;background:#D9356F;color:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 18px 30px -14px rgba(217,53,111,.7);--r:3deg">
-<div style="font-size:11px;font-weight:800;letter-spacing:1.4px">DESDE</div><b style="font-family:'Outfit',sans-serif;font-size:22px">[PRECIO]</b></div>
 </div>
 </div>
 

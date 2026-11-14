@@ -80,6 +80,7 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 .cm-vid{min-width:0!important;width:100%;flex:1 1 100%!important;margin-bottom:56px!important}
 .cm-sun{width:68px!important;height:68px!important;top:-76px!important;right:8px!important}
 .cm-bubble{display:none!important}
+.cm-testi{grid-template-columns:minmax(0,1fr)!important}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -136,7 +137,7 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 <div class="cm-vid" style="position:relative;flex:0 1 460px;min-width:300px;margin-bottom:70px">
 <img class="cm-spin cm-sun" src="assets/img/sol.png" alt="" aria-hidden="true" style="position:absolute;right:10px;top:-98px;width:92px;height:92px;pointer-events:none;object-fit:contain;z-index:2">
 <div style="position:relative;width:100%;aspect-ratio:9/11;max-height:640px;border-radius:44px;overflow:hidden;background:#12B3D6">
-<video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/flota.mp4" poster="assets/img/poster-flota.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+<video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/medanos.mp4" poster="assets/img/poster-medanos.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
 </div>
 </div>
 </div>
@@ -243,15 +244,15 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 </div>
 </div>
 
-<!-- Banda azul con video del mar detrás: Ellos ya vivieron la aventura -->
-<div style="position:relative;margin-top:90px;overflow:hidden;background:#12B3D6">
-<video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/aguas.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,179,214,.50),rgba(10,140,180,.58))"></div>
+<!-- Banda con video del mar (en alta) detrás: Ellos ya vivieron la aventura -->
+<div style="position:relative;margin-top:90px;overflow:hidden;background:#3E8FA6">
+<video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/mar-claro.mp4" poster="assets/img/poster-mar-claro.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,50,.22),rgba(10,30,50,.40))"></div>
 <div style="position:absolute;left:0;top:-1px;right:0;height:70px;overflow:hidden"><div class="cm-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:50%;height:70px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:50%;height:70px;display:block"><path d="M0 0V35Q90 70 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V0Z" fill="#FFF6EA"/></svg></div></div>
 <div style="position:absolute;left:0;bottom:-1px;right:0;height:70px;overflow:hidden"><div class="cm-wave2"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:50%;height:70px;display:block"><path d="M0 70V35Q90 0 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V70Z" fill="#FFF6EA"/></svg><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="width:50%;height:70px;display:block"><path d="M0 70V35Q90 0 180 35T360 35T540 35T720 35T900 35T1080 35T1260 35T1440 35V70Z" fill="#FFF6EA"/></svg></div></div>
 <div style="position:relative;max-width:1280px;margin:0 auto;padding:120px 32px 130px;display:flex;flex-direction:column;gap:30px">
 <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Pacifico',cursive;font-size:24px;color:#FFE27A">viviendo la aventura</span><h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:52px;letter-spacing:-1px;color:#fff;text-shadow:0 4px 24px rgba(0,40,70,.35)">Ellos ya vivieron la aventura</h2></div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px">
+<div class="cm-testi" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px">
 <div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;justify-content:center"><b style="font-family:'Outfit',sans-serif;font-size:64px;color:#D9356F;line-height:1">[N]+</b><div style="font-size:16px;color:#3B4E63;margin-top:6px">viajeros felices</div></div>
 <div style="background:#fff;border-radius:24px;padding:28px 32px;display:flex;flex-direction:column;gap:14px;min-height:160px;justify-content:center">
 <div data-show="t=0" style="display:contents"><div class="cm-pop"><div style="font-family:'Outfit',sans-serif;font-size:26px;line-height:1.35;font-weight:600">“[Testimonio real de un cliente 1]”</div><b style="font-size:14px;color:#B8255A;display:block;margin-top:10px">[Nombre] · [Destino]</b></div></div>

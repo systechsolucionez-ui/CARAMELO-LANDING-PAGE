@@ -86,6 +86,25 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 </style>
 
 <style>video{pointer-events:none;-webkit-user-select:none;user-select:none}img{-webkit-user-drag:none;user-select:none}</style>
+<style>
+.h2-chips{display:flex;flex-wrap:wrap;gap:8px}
+.h2-chips span{padding:8px 14px;border-radius:999px;background:#fff;font-size:13.5px;font-weight:700;box-shadow:0 8px 18px -14px rgba(27,42,60,.6)}
+@media (max-width:760px){.h2-chips span{font-size:12.5px;padding:7px 11px}}
+
+.hb{position:relative;max-width:1280px;margin:0 auto 64px;padding:0 32px}
+.hb-box{position:relative;border-radius:44px;overflow:hidden;min-height:640px;display:flex;align-items:flex-end;background:#B98A5A}
+.hb-box:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,28,44,.72) 0%,rgba(14,28,44,.35) 48%,rgba(14,28,44,0) 75%),linear-gradient(0deg,rgba(14,28,44,.55),rgba(14,28,44,0) 45%)}
+.hb-in{position:relative;z-index:2;color:#fff;padding:56px;display:flex;flex-direction:column;gap:20px;max-width:640px}
+.hb-in h1{margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:72px;line-height:1.02;letter-spacing:-1.5px}
+.hb-in h1 em{font-family:'Pacifico',cursive;font-style:normal;font-weight:400;color:#FFB36B;font-size:.82em;letter-spacing:0}
+.hb-in p{margin:0;font-size:19px;line-height:1.55;color:#F3ECE2}
+.hb-dest{display:flex;gap:10px;flex-wrap:wrap}
+.hb-dest span{cursor:pointer;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);font-size:14px;font-weight:700}
+.hb-dest b{color:#FFB36B}
+.hb .cm-sun{right:56px!important;top:40px!important;z-index:3}
+@media (max-width:760px){.hb{padding:0 12px}.hb-box{min-height:600px;border-radius:32px}.hb-box:before{background:linear-gradient(0deg,rgba(14,28,44,.85) 0%,rgba(14,28,44,.45) 55%,rgba(14,28,44,.1) 100%)}
+.hb-in{padding:26px 20px}.hb-dest{gap:8px}.hb-dest span{flex:1 1 calc(50% - 4px);box-sizing:border-box;text-align:center;padding:9px 6px;font-size:12.5px}.hb-dest b{display:block}.hb-in h1{font-size:44px}.hb-in p{font-size:16.5px}.hb .cm-ctas>span{flex:1 1 100%;text-align:center}.hb .cm-sun{right:14px!important;top:14px!important;width:54px!important;height:54px!important}.hb-in>span:first-child{margin-right:56px;font-size:12px!important}}
+</style>
 </head>
 <body>
 
@@ -117,30 +136,15 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 <!-- Carril del avión: vuela sobre una franja propia, sin cruzar textos -->
 <div class="cm-lane" aria-hidden="true" style="position:relative;height:54px;overflow:hidden;pointer-events:none"><img class="cm-plane" src="assets/img/avion.png" alt="" style="position:absolute;left:0;top:4px;width:120px;height:auto"></div>
 
-<!-- Hero -->
-<div class="cm-hero" style="position:relative;max-width:1280px;margin:0 auto;padding:12px 32px 0;display:flex;gap:40px;flex-wrap:wrap;align-items:center">
-<div style="position:absolute;left:-140px;top:-40px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,31,.30),rgba(255,138,31,0) 65%);pointer-events:none"></div>
-<!-- Decoración viva: sol, palmera, avión, burbujas -->
-<div class="cm-bubble" style="position:absolute;left:52%;bottom:80px;width:18px;height:18px;border-radius:50%;border:2px solid #12B3D6;pointer-events:none"></div>
-<div class="cm-bubble" style="position:absolute;left:58%;bottom:60px;width:12px;height:12px;border-radius:50%;border:2px solid #FF8A1F;animation-delay:-3s;pointer-events:none"></div>
-<div class="cm-bubble" style="position:absolute;left:48%;bottom:110px;width:24px;height:24px;border-radius:50%;border:2px solid #D9356F;animation-delay:-5s;pointer-events:none"></div>
-<div class="cm-htxt" style="position:relative;flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:20px;padding-bottom:70px">
-<span class="cm-rise cm-pill" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FFE3C2;color:#7A3C00;font-size:13px;font-weight:800">Full Days · Viajes privados · Vuelos y traslados</span>
-<h1 class="cm-rise cm-h1" style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:76px;line-height:1.04;letter-spacing:-1.5px">Reserva tu próxima<span style="display:block;height:1.05em;overflow:hidden"><span class="cm-words" style="color:#D9356F"><span style="display:block;height:1.05em">aventura</span><span style="display:block;height:1.05em">escapada</span><span style="display:block;height:1.05em">playa</span><span style="display:block;height:1.05em">cayo</span><span style="display:block;height:1.05em">aventura</span></span></span></h1>
-<p class="cm-rise" style="margin:0;font-size:19px;line-height:1.55;color:#3B4E63;max-width:500px">Mira el mar antes de llegar. Elige tu fecha, revisa qué incluye y reserva en minutos, con un asesor de carne y hueso al otro lado del WhatsApp.</p>
-<div class="cm-ctas" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px">
-<span class="cm-shine cm-wiggle" style="padding:18px 32px;border-radius:999px;background:#FF8A1F;font-size:17px;font-weight:800;box-shadow:0 16px 28px -12px rgba(255,138,31,.9)" data-link="venezuela.html">Ver salidas del mes</span>
-<span style="padding:16px 28px;border-radius:999px;border:2px solid #1B2A3C;font-size:17px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20privado">Armar viaje privado</span>
-</div>
-<div style="font-family:'Pacifico',cursive;font-size:24px;color:#D9356F;margin-top:4px">la dulce manera de viajar</div>
-</div>
-<div class="cm-vid" style="position:relative;flex:0 1 460px;min-width:300px;margin-bottom:70px">
-<img class="cm-spin cm-sun" src="assets/img/sol.png" alt="" aria-hidden="true" style="position:absolute;right:10px;top:-98px;width:92px;height:92px;pointer-events:none;object-fit:contain;z-index:2">
-<div style="position:relative;width:100%;aspect-ratio:9/11;max-height:640px;border-radius:44px;overflow:hidden;background:#12B3D6">
-<video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/medanos.mp4" poster="assets/img/poster-medanos.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
-</div>
-</div>
-</div>
+<!-- Hero (propuesta B) -->
+<div class="hb"><div class="hb-box"><video disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/medanos.mp4" poster="assets/img/poster-medanos.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video><img class="cm-spin cm-sun" src="assets/img/sol.png" alt="" aria-hidden="true" style="position:absolute;right:10px;top:-98px;width:92px;height:92px;pointer-events:none;object-fit:contain;z-index:2">
+<div class="hb-in">
+<span class="cm-rise" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;font-size:13px;font-weight:800">Full Days · Estadías · Viajes privados</span>
+<h1 class="cm-rise">El mar te espera,<br><em>a la dulce manera</em></h1>
+<p class="cm-rise">Cayos y playas de Venezuela en un día, saliendo desde Caracas. Tú solo llegas: el traslado, la atención y las fotos ya están resueltos.</p>
+<div class="hb-dest"><span data-link="venezuela.html#morrocoy">Morrocoy <b>desde REF 45</b></span><span data-link="venezuela.html#ocumare">Ocumare <b>desde REF 40</b></span><span data-link="venezuela.html#higuerote">Higuerote <b>desde REF 35</b></span><span data-link="venezuela.html#mochima">Mochima <b>desde REF 65</b></span></div>
+<div class="cm-ctas" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px"><span class="cm-shine cm-wiggle" style="padding:18px 32px;border-radius:999px;background:#FF8A1F;font-size:17px;font-weight:800;box-shadow:0 16px 28px -12px rgba(255,138,31,.9)" data-link="venezuela.html">Ver destinos y precios</span><span style="padding:16px 28px;border-radius:999px;border:2px solid #fff;color:#fff;font-size:17px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20privado">Armar viaje privado</span></div>
+</div></div></div>
 
 <!-- Buscador interactivo -->
 <div style="position:relative;z-index:2;max-width:1120px;margin:-50px auto 0;padding:0 32px">

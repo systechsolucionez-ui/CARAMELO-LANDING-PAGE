@@ -92,9 +92,9 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 @media (max-width:760px){.h2-chips span{font-size:12.5px;padding:7px 11px}}
 
 .hb{position:relative;max-width:1280px;margin:0 auto 64px;padding:0 32px}
-.hb-box{position:relative;border-radius:44px;overflow:hidden;min-height:640px;display:flex;align-items:flex-end;background:#B98A5A}
+.hb-box{position:relative;border-radius:44px;overflow:hidden;min-height:640px;display:flex;align-items:stretch;background:#B98A5A}
 .hb-box:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,28,44,.72) 0%,rgba(14,28,44,.35) 48%,rgba(14,28,44,0) 75%),linear-gradient(0deg,rgba(14,28,44,.55),rgba(14,28,44,0) 45%)}
-.hb-in{position:relative;z-index:2;color:#fff;padding:56px;display:flex;flex-direction:column;gap:20px;max-width:640px}
+.hb-in{position:relative;z-index:2;color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;max-width:640px}.hb-top{display:flex;flex-direction:column;gap:18px}.hb-in p{max-width:520px}
 .hb-in h1{margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:72px;line-height:1.02;letter-spacing:-1.5px}
 .hb-in h1 em{font-family:'Pacifico',cursive;font-style:normal;font-weight:400;color:#FFB36B;font-size:.82em;letter-spacing:0}
 .hb-in p{margin:0;font-size:19px;line-height:1.55;color:#F3ECE2}
@@ -102,7 +102,7 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 .hb-dest span{cursor:pointer;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);font-size:14px;font-weight:700}
 .hb-dest b{color:#FFB36B}
 .hb .cm-sun{right:56px!important;top:40px!important;z-index:3}
-@media (max-width:760px){.hb{padding:0 12px}.hb-box{min-height:600px;border-radius:32px}.hb-box:before{background:linear-gradient(0deg,rgba(14,28,44,.85) 0%,rgba(14,28,44,.45) 55%,rgba(14,28,44,.1) 100%)}
+@media (max-width:760px){.hb{padding:0 12px}.hb-box{min-height:600px;border-radius:32px}.hb-box:before{background:linear-gradient(0deg,rgba(14,28,44,.82) 0%,rgba(14,28,44,.35) 45%,rgba(14,28,44,.35) 60%,rgba(14,28,44,.7) 100%)}
 .hb-in{padding:26px 20px}.hb-dest{gap:8px}.hb-dest span{flex:1 1 calc(50% - 4px);box-sizing:border-box;text-align:center;padding:9px 6px;font-size:12.5px}.hb-in h1{font-size:44px}.hb-in p{font-size:16.5px}.hb .cm-ctas>span{flex:1 1 100%;text-align:center}.hb .cm-sun{right:14px!important;top:14px!important;width:54px!important;height:54px!important}.hb-in>span:first-child{margin-right:56px;font-size:12px!important}}
 </style>
 <link rel="preload" as="image" href="assets/img/poster-medanos.jpg">
@@ -111,13 +111,9 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 
 <div style="background:#FFF6EA;color:#1B2A3C;font-family:'Inter',sans-serif;overflow:hidden;position:relative">
 
-<!-- Franja animada -->
-<div style="background:linear-gradient(90deg,#E0447B,#FF8A1F);color:#fff;overflow:hidden;white-space:nowrap">
-<div class="cm-marquee" style="padding:11px 0;font-size:14px;font-weight:700;letter-spacing:.3px">
-<span style="padding:0 28px">Salidas desde Caracas</span><span>•</span><span style="padding:0 28px">Planes todo incluido</span><span>•</span><span style="padding:0 28px">Reservas con una parte y pagas el resto al subir al bus</span><span>•</span><span style="padding:0 28px">Zelle · Efectivo · Pago móvil · Binance</span><span>•</span><span style="padding:0 28px">Full Days · Estadías · Viajes privados · Vuelos</span><span>•</span>
-<span style="padding:0 28px">Salidas desde Caracas</span><span>•</span><span style="padding:0 28px">Planes todo incluido</span><span>•</span><span style="padding:0 28px">Reservas con una parte y pagas el resto al subir al bus</span><span>•</span><span style="padding:0 28px">Zelle · Efectivo · Pago móvil · Binance</span><span>•</span><span style="padding:0 28px">Full Days · Estadías · Viajes privados · Vuelos</span><span>•</span>
-</div>
-</div>
+<!-- Franja animada: texto liviano y la palabra clave gruesa y amarilla -->
+<style>.ct{background:linear-gradient(90deg,#E0447B,#FF8A1F);color:#fff;overflow:hidden;white-space:nowrap}.ct .cm-marquee{padding:10px 0;align-items:center}.ct-i{padding:0 22px;display:inline-flex;align-items:baseline;gap:7px;font-family:'Inter',sans-serif;font-size:14px;font-weight:400}.ct-i b{font-family:'Outfit',sans-serif;font-weight:800;font-size:15.5px;color:#FFE08A;letter-spacing:.2px}.ct-s{font-size:11px;opacity:.8}</style>
+<div class="ct"><div class="cm-marquee"><span class="ct-i">Salidas desde <b>Caracas</b></span><span class="ct-s">✦</span><span class="ct-i">Planes <b>todo incluido</b></span><span class="ct-s">✦</span><span class="ct-i">Reservas con una parte y pagas el resto <b>al subir al bus</b></span><span class="ct-s">✦</span><span class="ct-i"><b>Zelle · Efectivo · Pago móvil · Binance</b></span><span class="ct-s">✦</span><span class="ct-i"><b>Full Days</b> · Estadías · Viajes privados · Vuelos</span><span class="ct-s">✦</span><span class="ct-i">Salidas desde <b>Caracas</b></span><span class="ct-s">✦</span><span class="ct-i">Planes <b>todo incluido</b></span><span class="ct-s">✦</span><span class="ct-i">Reservas con una parte y pagas el resto <b>al subir al bus</b></span><span class="ct-s">✦</span><span class="ct-i"><b>Zelle · Efectivo · Pago móvil · Binance</b></span><span class="ct-s">✦</span><span class="ct-i"><b>Full Days</b> · Estadías · Viajes privados · Vuelos</span><span class="ct-s">✦</span></div></div>
 
 <!-- Nav -->
 <div class="cm-nav" style="max-width:1280px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative;z-index:3">
@@ -140,8 +136,8 @@ a{color:#B8255A}a:hover{color:#8F1A45}
 <!-- Hero (propuesta B) -->
 <div class="hb"><div class="hb-box"><video preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" src="assets/video/medanos.mp4" poster="assets/img/poster-medanos.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
 <div class="hb-in">
-<span class="cm-rise" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;font-size:13px;font-weight:800">Full Days · Estadías · Viajes privados</span>
-<h1 class="cm-rise">El mar te espera,<br><em>a la dulce manera</em></h1>
+<div class="hb-top"><span class="cm-rise" style="align-self:flex-start;padding:8px 16px;border-radius:999px;background:#FF8A1F;color:#1B2A3C;font-size:13px;font-weight:800">Full Days · Estadías · Viajes privados</span>
+<h1 class="cm-rise">El mar te espera,<br><em>a la dulce manera</em></h1></div>
 <p class="cm-rise">Cayos y playas de Venezuela en un día, saliendo desde Caracas. Tú solo llegas: el traslado, la atención y las fotos ya están resueltos.</p>
 <div class="cm-ctas" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px"><span class="cm-shine cm-wiggle" style="padding:18px 32px;border-radius:999px;background:#FF8A1F;font-size:17px;font-weight:800;box-shadow:0 16px 28px -12px rgba(255,138,31,.9)" data-link="venezuela.html">Ver destinos y precios</span><span style="padding:16px 28px;border-radius:999px;border:2px solid #fff;color:#fff;font-size:17px;font-weight:700" data-link="https://wa.me/584242511630?text=Hola%20Caramelo%20Tours%2C%20quiero%20cotizar%20un%20viaje%20privado">Armar viaje privado</span></div>
 </div></div></div>
